@@ -1,0 +1,24 @@
+{
+  "originHash" : "a28251ceeba75e00f3c27b253b87886dfdb0280ca40a3db0c9ba379b7fdd249c",
+  "pins" : [
+    {
+      "identity" : "localize-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/marmelroy/Localize-Swift.git",
+      "state" : {
+        "revision" : "0aa221fed0512772eaad04171d966b8d77b15212",
+        "version" : "3.2.0"
+      }
+    },
+    {
+      "identity" : "sdwebimage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SDWebImage/SDWebImage",
+      "state" : {
+        "revision" : "b62cb63bf4ed1f04c961a56c9c6c9d5ab8524ec6",
+        "version" : "5.21.1"
+      }
+    }
+  ],
+  "version" : 3
+}

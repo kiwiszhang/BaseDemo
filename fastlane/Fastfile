@@ -1,0 +1,72 @@
+default_platform(:ios)
+
+platform :ios do
+  # --- 重要配置：请根据你的项目修改下面的信息 ---
+  app_scheme = "MobileProject"
+  app_workspace = "MobileProject.xcworkspace"
+  # app_project = "MobileProject.xcodeproj"
+  app_bundle_id = "com.tayue.chatinfo"
+  
+  pgy_api_key = "0fb4b570bc9141197a69bb6a205e45a5"
+  # --- 配置结束 ---
+    
+  desc "打包应用并上传到蒲公英进行测试 (DEBUG模式)" # 更新了描述
+  lane :beta do
+    puts "🚀 开始打包应用 (DEBUG 模式)..."
+
+    gym(
+      scheme: app_scheme,
+      workspace: app_workspace,
+      # project: app_project,
+      export_method: "ad-hoc",
+      configuration: "Debug",
+      output_directory: "./build",
+      clean: true,
+      xcargs: "-allowProvisioningUpdates"
+      # include_bitcode: false, # Debug模式下通常不需要bitcode，可以设为false
+      # include_symbols: true   # Debug模式默认会包含符号
+    )
+
+    puts "📦 应用打包完成 (DEBUG 模式)！准备上传到蒲公英..."
+
+    pgyer(
+      api_key: pgy_api_key,
+      update_description: "新的DEBUG测试版本已上传！本次更新内容：修复了一些小bug，优化了用户体验。" # 更新了描述
+    )
+
+    puts "🎉 DEBUG模式应用成功打包并上传到蒲公英！快去蒲公英看看吧！"
+  end
+
+  desc "打包应用并上传到 App Store Connect 进行发布"
+  lane :release do
+    puts "🚀 开始为 App Store 打包应用..."
+
+    # (可选但推荐) 自动管理证书和描述文件
+    # match(type: "appstore", app_identifier: app_bundle_id, readonly: true)
+
+    gym(
+      scheme: app_scheme,
+      workspace: app_workspace,
+      export_method: "app-store",
+      output_directory: "./build",
+      clean: true,
+      xcargs: "-allowProvisioningUpdates"
+    )
+
+    puts "📦 应用打包完成！准备上传到 App Store Connect..."
+
+    # 上传到 App Store Connect，使用密钥内容
+    upload_to_app_store(
+      force: true,
+      itc_provider: "NKTVSPZ2V9",
+      app_identifier: app_bundle_id,
+      skip_metadata: true,
+      skip_screenshots: true,
+      api_key_path: "./apiKey.json",
+      precheck_include_in_app_purchases: false
+    )
+
+    puts "🎉 应用成功打包并上传到 App Store Connect！"
+    puts "请登录 App Store Connect 后台，选择刚才上传的构建版本，然后提交审核。"
+  end
+end

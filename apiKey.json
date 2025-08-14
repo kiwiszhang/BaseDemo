@@ -1,0 +1,7 @@
+{
+  "key_id": "59K6S52HB9",
+  "issuer_id": "680ba842-9e81-474b-9dc8-b4233c91fac2",
+  "key": "-----BEGIN PRIVATE KEY-----\nMIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgMt2eizDMwcfhWVOrffq3ZAQqrbtZmVBpONP+I/WN1a2gCgYIKoZIzj0DAQehRANCAARimu6KWZkiWa9oD5U76EhbPIrGhsxjg9tUKxxRz/Haz8TL2KbRLQncaSIFnVSw1+sF0GXRTJqZJeI1gpbbgZQV\n-----END PRIVATE KEY-----",
+  "duration": 1200,
+  "in_house": false
+}

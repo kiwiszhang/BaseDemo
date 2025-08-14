@@ -1,0 +1,36 @@
+# 图片资源配置
+xcassets:
+  inputs:
+    - MobileProject/Assets.xcassets
+  outputs:
+    templateName: swift5
+    output: MobileProject/generated/Images.swift
+
+# 本地化字符串配置
+strings:
+  inputs:
+    - MobileProject/en.lproj/Localizable.strings
+  outputs:
+    templateName: structured-swift5
+    params:
+        lookupFunction: Localize_Swift_bridge(forKey:table:fallbackValue:)
+    output: MobileProject/generated/Strings.swift
+
+# GIF,MP4
+files:
+  inputs:
+    - MobileProject/other/source/gif
+    - MobileProject/other/source/mp4
+    - MobileProject/other/source/font
+  outputs:
+    templateName: structured-swift5
+    output: MobileProject/generated/MediaFiles.swift
+
+
+# JSON 文件
+json:
+  inputs:
+    - MobileProject/other/source/json
+  outputs:
+    templateName: runtime-swift5
+    output: MobileProject/generated/JSON.swift
