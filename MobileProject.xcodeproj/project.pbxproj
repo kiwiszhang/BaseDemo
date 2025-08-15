@@ -155,6 +155,11 @@
 		53A28A462E4C785F00439EA2 /* flash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53A289E92E4C785F00439EA2 /* flash@2x.png */; };
 		53A28A482E4C785F00439EA2 /* rotate.png in Resources */ = {isa = PBXBuildFile; fileRef = 53A289EE2E4C785F00439EA2 /* rotate.png */; };
 		53A28A492E4C785F00439EA2 /* flashUnavailable.png in Resources */ = {isa = PBXBuildFile; fileRef = 53A289EB2E4C785F00439EA2 /* flashUnavailable.png */; };
+		53A28A782E4F09E700439EA2 /* iCloudUseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A28A772E4F09E700439EA2 /* iCloudUseViewController.swift */; };
+		53A28A7A2E4F0A9600439EA2 /* List01ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A28A792E4F0A9600439EA2 /* List01ViewController.swift */; };
+		53A28A7C2E4F136300439EA2 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A28A7B2E4F136300439EA2 /* PersistenceController.swift */; };
+		53A28A7F2E4F193100439EA2 /* CoreDataICloud.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 53A28A7D2E4F193100439EA2 /* CoreDataICloud.xcdatamodeld */; };
+		53A28A812E4F1D0A00439EA2 /* PhotoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A28A802E4F1D0A00439EA2 /* PhotoStore.swift */; };
 		53AB84F32E347CB80073C438 /* BottomPushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB84F22E347CB80073C438 /* BottomPushAnimator.swift */; };
 		53BB5E622DCD91DD00A3C585 /* EducationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BB5E5F2DCD91DD00A3C585 /* EducationModel.swift */; };
 		53BB5E632DCD91DD00A3C585 /* DataBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BB5E5D2DCD91DD00A3C585 /* DataBaseViewController.swift */; };
@@ -344,6 +349,11 @@
 		53A28A132E4C785F00439EA2 /* CaptureSession+Focus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CaptureSession+Focus.swift"; sourceTree = "<group>"; };
 		53A28A142E4C785F00439EA2 /* CaptureSession+Orientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CaptureSession+Orientation.swift"; sourceTree = "<group>"; };
 		53A28A162E4C785F00439EA2 /* ImageScannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScannerController.swift; sourceTree = "<group>"; };
+		53A28A772E4F09E700439EA2 /* iCloudUseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCloudUseViewController.swift; sourceTree = "<group>"; };
+		53A28A792E4F0A9600439EA2 /* List01ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List01ViewController.swift; sourceTree = "<group>"; };
+		53A28A7B2E4F136300439EA2 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		53A28A7E2E4F193100439EA2 /* CoreDataICloud.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataICloud.xcdatamodel; sourceTree = "<group>"; };
+		53A28A802E4F1D0A00439EA2 /* PhotoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoStore.swift; sourceTree = "<group>"; };
 		53AB84F22E347CB80073C438 /* BottomPushAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomPushAnimator.swift; sourceTree = "<group>"; };
 		53BB5E5C2DCD91DD00A3C585 /* DataBaseTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseTool.swift; sourceTree = "<group>"; };
 		53BB5E5D2DCD91DD00A3C585 /* DataBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseViewController.swift; sourceTree = "<group>"; };
@@ -395,6 +405,7 @@
 		388FB08B2DA17037006C52AC /* MobileProject */ = {
 			isa = PBXGroup;
 			children = (
+				53A28A762E4F09B700439EA2 /* CoreData和iCloud */,
 				53A28A192E4C785F00439EA2 /* WeScan */,
 				53A2898B2E4C2C7F00439EA2 /* Scan */,
 				5351BAEE2E448E4D007C9F97 /* ABTest */,
@@ -839,6 +850,18 @@
 			path = WeScan;
 			sourceTree = "<group>";
 		};
+		53A28A762E4F09B700439EA2 /* CoreData和iCloud */ = {
+			isa = PBXGroup;
+			children = (
+				53A28A772E4F09E700439EA2 /* iCloudUseViewController.swift */,
+				53A28A7B2E4F136300439EA2 /* PersistenceController.swift */,
+				53A28A802E4F1D0A00439EA2 /* PhotoStore.swift */,
+				53A28A792E4F0A9600439EA2 /* List01ViewController.swift */,
+				53A28A7D2E4F193100439EA2 /* CoreDataICloud.xcdatamodeld */,
+			);
+			path = "CoreData和iCloud";
+			sourceTree = "<group>";
+		};
 		53BB5E612DCD91DD00A3C585 /* database */ = {
 			isa = PBXGroup;
 			children = (
@@ -1037,9 +1060,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-MobileProject/Pods-MobileProject-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-MobileProject/Pods-MobileProject-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1112,6 +1139,7 @@
 				5365309C2DCB01810020026B /* String+Extension.swift in Sources */,
 				53A289692E4B392F00439EA2 /* CustomTabBar.swift in Sources */,
 				5365309E2DCB01810020026B /* SuperCollectionViewCell.swift in Sources */,
+				53A28A7C2E4F136300439EA2 /* PersistenceController.swift in Sources */,
 				53EE1F872E46F0A500B40DF6 /* AppIconHelper.swift in Sources */,
 				5351BB112E45817A007C9F97 /* UserDefaultsTools.swift in Sources */,
 				536530A02DCB01810020026B /* UIImageView+Create.swift in Sources */,
@@ -1141,10 +1169,12 @@
 				53A28A302E4C785F00439EA2 /* ImageScannerController.swift in Sources */,
 				53A28A312E4C785F00439EA2 /* FocusRectangleView.swift in Sources */,
 				53A28A322E4C785F00439EA2 /* CGSize+Utils.swift in Sources */,
+				53A28A7A2E4F0A9600439EA2 /* List01ViewController.swift in Sources */,
 				53A28A332E4C785F00439EA2 /* ShutterButton.swift in Sources */,
 				53A28A342E4C785F00439EA2 /* Error.swift in Sources */,
 				53A28A352E4C785F00439EA2 /* CGImagePropertyOrientation.swift in Sources */,
 				53A28A362E4C785F00439EA2 /* CameraScannerViewController.swift in Sources */,
+				53A28A7F2E4F193100439EA2 /* CoreDataICloud.xcdatamodeld in Sources */,
 				53A28A372E4C785F00439EA2 /* CaptureSessionManager.swift in Sources */,
 				53A28A382E4C785F00439EA2 /* UIImage+Utils.swift in Sources */,
 				53A28A392E4C785F00439EA2 /* CIImage+Utils.swift in Sources */,
@@ -1162,6 +1192,7 @@
 				536530B32DCB01810020026B /* UIDevice+Extension.swift in Sources */,
 				536530B62DCB01810020026B /* UITextView+Extension.swift in Sources */,
 				536530BA2DCB01810020026B /* UIImage+Extension.swift in Sources */,
+				53A28A812E4F1D0A00439EA2 /* PhotoStore.swift in Sources */,
 				536530BB2DCB01810020026B /* MBProgressHUD+Extension.swift in Sources */,
 				536530BD2DCB01810020026B /* UIApplication+Extension.swift in Sources */,
 				536530BE2DCB01810020026B /* UITextField+Create.swift in Sources */,
@@ -1206,6 +1237,7 @@
 				536530EC2DCB01810020026B /* UIControl+Create.swift in Sources */,
 				388FB08F2DA17037006C52AC /* SceneDelegate.swift in Sources */,
 				5351BAF02E448E54007C9F97 /* ABTestDebugConfigPage.swift in Sources */,
+				53A28A782E4F09E700439EA2 /* iCloudUseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1472,6 +1504,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		53A28A7D2E4F193100439EA2 /* CoreDataICloud.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				53A28A7E2E4F193100439EA2 /* CoreDataICloud.xcdatamodel */,
+			);
+			currentVersion = 53A28A7E2E4F193100439EA2 /* CoreDataICloud.xcdatamodel */;
+			path = CoreDataICloud.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 388FB0812DA17037006C52AC /* Project object */;
 }

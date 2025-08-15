@@ -23,7 +23,7 @@ class MainTabBarController: UITabBarController {
             createNav(LaunchViewController(), title: "首页", image: "setting-delete", selectedImage: "setting-rate"),
             createNav(WeScanViewController(), title: "发现", image: "setting-language", selectedImage: "setting-privacy"),
             createNav(WeScanViewController111(), title: "消息", image: "setting-privacy", selectedImage: "setting-language"),
-            createNav(LaunchViewController(), title: "我的", image: "setting-rate", selectedImage: "setting-delete")
+            createNav(List01ViewController(), title: "我的", image: "setting-rate", selectedImage: "setting-delete")
         ]
         
         // 中间按钮点击
