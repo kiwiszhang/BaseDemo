@@ -160,6 +160,8 @@
 		53A28A7C2E4F136300439EA2 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A28A7B2E4F136300439EA2 /* PersistenceController.swift */; };
 		53A28A7F2E4F193100439EA2 /* CoreDataICloud.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 53A28A7D2E4F193100439EA2 /* CoreDataICloud.xcdatamodeld */; };
 		53A28A812E4F1D0A00439EA2 /* PhotoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A28A802E4F1D0A00439EA2 /* PhotoStore.swift */; };
+		53A28A832E4F238900439EA2 /* iCloudRecordAssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A28A822E4F238900439EA2 /* iCloudRecordAssetViewController.swift */; };
+		53A28A902E4F36B900439EA2 /* CloudKitPhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A28A8F2E4F36B900439EA2 /* CloudKitPhotoManager.swift */; };
 		53AB84F32E347CB80073C438 /* BottomPushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB84F22E347CB80073C438 /* BottomPushAnimator.swift */; };
 		53BB5E622DCD91DD00A3C585 /* EducationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BB5E5F2DCD91DD00A3C585 /* EducationModel.swift */; };
 		53BB5E632DCD91DD00A3C585 /* DataBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BB5E5D2DCD91DD00A3C585 /* DataBaseViewController.swift */; };
@@ -354,6 +356,8 @@
 		53A28A7B2E4F136300439EA2 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		53A28A7E2E4F193100439EA2 /* CoreDataICloud.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataICloud.xcdatamodel; sourceTree = "<group>"; };
 		53A28A802E4F1D0A00439EA2 /* PhotoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoStore.swift; sourceTree = "<group>"; };
+		53A28A822E4F238900439EA2 /* iCloudRecordAssetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCloudRecordAssetViewController.swift; sourceTree = "<group>"; };
+		53A28A8F2E4F36B900439EA2 /* CloudKitPhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitPhotoManager.swift; sourceTree = "<group>"; };
 		53AB84F22E347CB80073C438 /* BottomPushAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomPushAnimator.swift; sourceTree = "<group>"; };
 		53BB5E5C2DCD91DD00A3C585 /* DataBaseTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseTool.swift; sourceTree = "<group>"; };
 		53BB5E5D2DCD91DD00A3C585 /* DataBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseViewController.swift; sourceTree = "<group>"; };
@@ -854,6 +858,8 @@
 			isa = PBXGroup;
 			children = (
 				53A28A772E4F09E700439EA2 /* iCloudUseViewController.swift */,
+				53A28A8F2E4F36B900439EA2 /* CloudKitPhotoManager.swift */,
+				53A28A822E4F238900439EA2 /* iCloudRecordAssetViewController.swift */,
 				53A28A7B2E4F136300439EA2 /* PersistenceController.swift */,
 				53A28A802E4F1D0A00439EA2 /* PhotoStore.swift */,
 				53A28A792E4F0A9600439EA2 /* List01ViewController.swift */,
@@ -1115,6 +1121,7 @@
 				536530862DCB01810020026B /* CGFloat+Extension.swift in Sources */,
 				53950CD92E38A95C0046EFA5 /* SubscriptionManager.swift in Sources */,
 				536530882DCB01810020026B /* UIView+Create.swift in Sources */,
+				53A28A902E4F36B900439EA2 /* CloudKitPhotoManager.swift in Sources */,
 				53A2897F2E4C20F800439EA2 /* MainTabBarController.swift in Sources */,
 				5365308B2DCB01810020026B /* UITableView+Create.swift in Sources */,
 				5365308C2DCB01810020026B /* UICollectionView+Create.swift in Sources */,
@@ -1160,6 +1167,7 @@
 				53A28A272E4C785F00439EA2 /* CaptureSession+Flash.swift in Sources */,
 				53A28A282E4C785F00439EA2 /* VisionRectangleDetector.swift in Sources */,
 				53A28A292E4C785F00439EA2 /* CGRect+Utils.swift in Sources */,
+				53A28A832E4F238900439EA2 /* iCloudRecordAssetViewController.swift in Sources */,
 				53A28A2A2E4C785F00439EA2 /* CaptureSession+Orientation.swift in Sources */,
 				53A28A2B2E4C785F00439EA2 /* ScannerViewController.swift in Sources */,
 				53A28A2C2E4C785F00439EA2 /* ZoomGestureController.swift in Sources */,

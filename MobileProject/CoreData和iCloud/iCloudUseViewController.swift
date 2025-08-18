@@ -30,6 +30,7 @@
 
 import UIKit
 import PhotosUI
+import CloudKit
 
 let kkPhotosPath = "photos"
 
@@ -279,7 +280,7 @@ extension iCloudUseViewController: UICollectionViewDelegateFlowLayout {
 class cloudCollecionViewCell: SuperCollectionViewCell {
     private var containerView = UIView().backgroundColor(.colorWithHexString("D6B6F5").withAlphaComponent(0.4))
     private let imgView = UIImageView()
-    private lazy var title = UILabel().text("").color(.colorWithHexString("EEEEEE")).hnFont(size: 12.w).centerAligned()
+    private lazy var titleLab = UILabel().text("").color(.colorWithHexString("EEEEEE")).hnFont(size: 12.w).centerAligned()
     
     override func setUpUI() {
         contentView.addSubView(containerView)
@@ -288,20 +289,55 @@ class cloudCollecionViewCell: SuperCollectionViewCell {
             make.top.left.right.bottom.equalToSuperview()
         }
         
-        containerView.addChildView([imgView,title])
-        title.snp.makeConstraints { make in
+        containerView.addChildView([imgView,titleLab])
+        titleLab.snp.makeConstraints { make in
             make.left.bottom.right.equalToSuperview()
             make.height.equalTo(20.h)
         }
         imgView.snp.makeConstraints { make in
             make.top.left.right.equalToSuperview()
-            make.bottom.equalTo(title.snp.top)
+            make.bottom.equalTo(titleLab.snp.top)
         }
         
     }
     
     func configure(with item: PhotoItem) {
         imgView.image(UIImage(data: (item.imageData)!))
-        title.text(item.title)
+        titleLab.text(item.title)
+    }
+    
+    func configureAsset(with record: CKRecord) {
+        if let title = record["title"] as? String {
+            titleLab.text(title)
+        }
+
+        if let age = record["age"] as? Int {
+            print("数量：\(age)")
+        }
+        
+        if let asset = record["photo"] as? CKAsset,
+           let fileURL = asset.fileURL {
+            
+            // 从 fileURL 读取文件数据
+            do {
+                let imageData = try Data(contentsOf: fileURL)
+                
+                // 转成 UIImage
+                if let image = UIImage(data: imageData) {
+                    DispatchQueue.main.async { [self] in
+                        // 这里更新 UI，比如设置到 UIImageView
+                        imgView.image = image
+                        print("图片加载成功")
+                    }
+                } else {
+                    print("无法将数据转成 UIImage")
+                }
+            } catch {
+                print("读取图片数据失败: \(error.localizedDescription)")
+            }
+        } else {
+            print("photo 字段为空或不是 CKAsset 类型")
+        }
+        
     }
 }

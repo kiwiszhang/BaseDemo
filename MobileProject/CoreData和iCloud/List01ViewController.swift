@@ -38,7 +38,7 @@ class List01ViewController: SuperViewController {
     }
     
     override func getData() {
-        dataList = ["CoreData和iCloud数据同步和持久化"]
+        dataList = ["CoreData+CloudKit数据同步","CoreData+CKAsset数据同步"]
     }
     // MARK: - =====================actions==========================
 
@@ -64,6 +64,8 @@ extension List01ViewController: UITableViewDelegate, UITableViewDataSource {
         var vc = SuperViewController()
         if indexPath.row == 0 {
             vc = iCloudUseViewController()
+        }else if indexPath.row == 1 {
+            vc = iCloudRecordAssetViewController()
         }
         self.navigationController?.pushViewController(vc, animated: true)
     }
