@@ -18,7 +18,7 @@
 		530AF5F32E2F76E9001AF363 /* ChatHistoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530AF5F22E2F76E9001AF363 /* ChatHistoryData.swift */; };
 		532384362E49DF730050AA66 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 532384352E49DF730050AA66 /* GoogleService-Info.plist */; };
 		533D12442E1BAB4300C97724 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 533D12432E1BAB4300C97724 /* LaunchScreen.storyboard */; };
-		5351BA912E405445007C9F97 /* WAlytics.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 5351BA902E405445007C9F97 /* WAlytics.storekit */; };
+		533D9D412E530A4000E401B3 /* CoreDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533D9D402E530A4000E401B3 /* CoreDataViewController.swift */; };
 		5351BAF02E448E54007C9F97 /* ABTestDebugConfigPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5351BAEF2E448E54007C9F97 /* ABTestDebugConfigPage.swift */; };
 		5351BAF22E4491B3007C9F97 /* AppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5351BAF12E4491B3007C9F97 /* AppHelper.swift */; };
 		5351BAF42E4491DC007C9F97 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5351BAF32E4491DC007C9F97 /* UserDefaults.swift */; };
@@ -100,8 +100,6 @@
 		53950C9A2E3867C30046EFA5 /* CommomTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53950C992E3867C30046EFA5 /* CommomTool.swift */; };
 		53950CD92E38A95C0046EFA5 /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53950CD82E38A95C0046EFA5 /* SubscriptionManager.swift */; };
 		53950CFF2E38B1B20046EFA5 /* EventReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53950CFE2E38B1B20046EFA5 /* EventReport.swift */; };
-		53950D032E38CDF60046EFA5 /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = 53950D022E38CDF60046EFA5 /* StoreKitTestCertificate.cer */; };
-		53950D052E38D3D20046EFA5 /* chatStoreKitTest.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 53950D042E38D3D20046EFA5 /* chatStoreKitTest.storekit */; };
 		539F2D432DA8B1190030DA8F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 539F2D412DA8B1190030DA8F /* InfoPlist.strings */; };
 		539F2D4C2DA921030030DA8F /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539F2D4B2DA921030030DA8F /* WebViewController.swift */; };
 		53A289692E4B392F00439EA2 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A289682E4B392F00439EA2 /* CustomTabBar.swift */; };
@@ -164,6 +162,12 @@
 		53A28A902E4F36B900439EA2 /* CloudKitPhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A28A8F2E4F36B900439EA2 /* CloudKitPhotoManager.swift */; };
 		53A28A922E52F5CF00439EA2 /* iCloudDocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A28A912E52F5CF00439EA2 /* iCloudDocumentViewController.swift */; };
 		53A28A942E52F73300439EA2 /* iCloudDocumentsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A28A932E52F73300439EA2 /* iCloudDocumentsManager.swift */; };
+		53A28ADE2E53075900439EA2 /* Products.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53A28AD72E53075900439EA2 /* Products.plist */; };
+		53A28AE22E53075900439EA2 /* PurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A28ADA2E53075900439EA2 /* PurchaseViewController.swift */; };
+		53A28AE32E53075900439EA2 /* PurchaseTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A28AD82E53075900439EA2 /* PurchaseTableHeaderView.swift */; };
+		53A28AE42E53075900439EA2 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A28ADB2E53075900439EA2 /* Store.swift */; };
+		53A28AE52E53075900439EA2 /* PurchaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A28AD92E53075900439EA2 /* PurchaseTableViewCell.swift */; };
+		53A28AE72E5307E500439EA2 /* StoreKitTest.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 53A28AE62E5307E500439EA2 /* StoreKitTest.storekit */; };
 		53AB84F32E347CB80073C438 /* BottomPushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB84F22E347CB80073C438 /* BottomPushAnimator.swift */; };
 		53BB5E622DCD91DD00A3C585 /* EducationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BB5E5F2DCD91DD00A3C585 /* EducationModel.swift */; };
 		53BB5E632DCD91DD00A3C585 /* DataBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BB5E5D2DCD91DD00A3C585 /* DataBaseViewController.swift */; };
@@ -205,7 +209,7 @@
 		530AF5F22E2F76E9001AF363 /* ChatHistoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHistoryData.swift; sourceTree = "<group>"; };
 		532384352E49DF730050AA66 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		533D12432E1BAB4300C97724 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		5351BA902E405445007C9F97 /* WAlytics.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = WAlytics.storekit; sourceTree = "<group>"; };
+		533D9D402E530A4000E401B3 /* CoreDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataViewController.swift; sourceTree = "<group>"; };
 		5351BAEF2E448E54007C9F97 /* ABTestDebugConfigPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABTestDebugConfigPage.swift; sourceTree = "<group>"; };
 		5351BAF12E4491B3007C9F97 /* AppHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHelper.swift; sourceTree = "<group>"; };
 		5351BAF32E4491DC007C9F97 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
@@ -295,8 +299,6 @@
 		53950C992E3867C30046EFA5 /* CommomTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommomTool.swift; sourceTree = "<group>"; };
 		53950CD82E38A95C0046EFA5 /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
 		53950CFE2E38B1B20046EFA5 /* EventReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventReport.swift; sourceTree = "<group>"; };
-		53950D022E38CDF60046EFA5 /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = StoreKitTestCertificate.cer; sourceTree = "<group>"; };
-		53950D042E38D3D20046EFA5 /* chatStoreKitTest.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = chatStoreKitTest.storekit; sourceTree = "<group>"; };
 		539F2D422DA8B1190030DA8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		539F2D442DA8B1390030DA8F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		539F2D452DA8B1390030DA8F /* es-MX */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-MX"; path = "es-MX.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -362,6 +364,12 @@
 		53A28A8F2E4F36B900439EA2 /* CloudKitPhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitPhotoManager.swift; sourceTree = "<group>"; };
 		53A28A912E52F5CF00439EA2 /* iCloudDocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCloudDocumentViewController.swift; sourceTree = "<group>"; };
 		53A28A932E52F73300439EA2 /* iCloudDocumentsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCloudDocumentsManager.swift; sourceTree = "<group>"; };
+		53A28AD72E53075900439EA2 /* Products.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Products.plist; sourceTree = "<group>"; };
+		53A28AD82E53075900439EA2 /* PurchaseTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseTableHeaderView.swift; sourceTree = "<group>"; };
+		53A28AD92E53075900439EA2 /* PurchaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseTableViewCell.swift; sourceTree = "<group>"; };
+		53A28ADA2E53075900439EA2 /* PurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseViewController.swift; sourceTree = "<group>"; };
+		53A28ADB2E53075900439EA2 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		53A28AE62E5307E500439EA2 /* StoreKitTest.storekit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = StoreKitTest.storekit; sourceTree = "<group>"; };
 		53AB84F22E347CB80073C438 /* BottomPushAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomPushAnimator.swift; sourceTree = "<group>"; };
 		53BB5E5C2DCD91DD00A3C585 /* DataBaseTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseTool.swift; sourceTree = "<group>"; };
 		53BB5E5D2DCD91DD00A3C585 /* DataBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseViewController.swift; sourceTree = "<group>"; };
@@ -413,7 +421,9 @@
 		388FB08B2DA17037006C52AC /* MobileProject */ = {
 			isa = PBXGroup;
 			children = (
-				53A28A762E4F09B700439EA2 /* CoreData和iCloud */,
+				533D9D3F2E530A2B00E401B3 /* 数据持久化 */,
+				53A28ADC2E53075900439EA2 /* Purchase内购 */,
+				53A28A762E4F09B700439EA2 /* iCloud数据同步 */,
 				53A28A192E4C785F00439EA2 /* WeScan */,
 				53A2898B2E4C2C7F00439EA2 /* Scan */,
 				5351BAEE2E448E4D007C9F97 /* ABTest */,
@@ -435,6 +445,14 @@
 				539F2D412DA8B1190030DA8F /* InfoPlist.strings */,
 			);
 			path = MobileProject;
+			sourceTree = "<group>";
+		};
+		533D9D3F2E530A2B00E401B3 /* 数据持久化 */ = {
+			isa = PBXGroup;
+			children = (
+				533D9D402E530A4000E401B3 /* CoreDataViewController.swift */,
+			);
+			path = "数据持久化";
 			sourceTree = "<group>";
 		};
 		5351BAEE2E448E4D007C9F97 /* ABTest */ = {
@@ -688,9 +706,6 @@
 				53950CD82E38A95C0046EFA5 /* SubscriptionManager.swift */,
 				53950CFE2E38B1B20046EFA5 /* EventReport.swift */,
 				53EE1F862E46F0A500B40DF6 /* AppIconHelper.swift */,
-				5351BA902E405445007C9F97 /* WAlytics.storekit */,
-				53950D042E38D3D20046EFA5 /* chatStoreKitTest.storekit */,
-				53950D022E38CDF60046EFA5 /* StoreKitTestCertificate.cer */,
 				5365306F2DCB01810020026B /* ShareManager.swift */,
 			);
 			path = tool;
@@ -858,7 +873,7 @@
 			path = WeScan;
 			sourceTree = "<group>";
 		};
-		53A28A762E4F09B700439EA2 /* CoreData和iCloud */ = {
+		53A28A762E4F09B700439EA2 /* iCloud数据同步 */ = {
 			isa = PBXGroup;
 			children = (
 				53A28A772E4F09E700439EA2 /* iCloudUseViewController.swift */,
@@ -871,7 +886,21 @@
 				53A28A792E4F0A9600439EA2 /* List01ViewController.swift */,
 				53A28A7D2E4F193100439EA2 /* CoreDataICloud.xcdatamodeld */,
 			);
-			path = "CoreData和iCloud";
+			name = "iCloud数据同步";
+			path = "iCloud数据";
+			sourceTree = "<group>";
+		};
+		53A28ADC2E53075900439EA2 /* Purchase内购 */ = {
+			isa = PBXGroup;
+			children = (
+				53A28AE62E5307E500439EA2 /* StoreKitTest.storekit */,
+				53A28AD72E53075900439EA2 /* Products.plist */,
+				53A28AD82E53075900439EA2 /* PurchaseTableHeaderView.swift */,
+				53A28AD92E53075900439EA2 /* PurchaseTableViewCell.swift */,
+				53A28ADA2E53075900439EA2 /* PurchaseViewController.swift */,
+				53A28ADB2E53075900439EA2 /* Store.swift */,
+			);
+			path = "Purchase内购";
 			sourceTree = "<group>";
 		};
 		53BB5E612DCD91DD00A3C585 /* database */ = {
@@ -996,22 +1025,21 @@
 				539F2D432DA8B1190030DA8F /* InfoPlist.strings in Resources */,
 				533D12442E1BAB4300C97724 /* LaunchScreen.storyboard in Resources */,
 				388FB0962DA17039006C52AC /* Assets.xcassets in Resources */,
-				5351BA912E405445007C9F97 /* WAlytics.storekit in Resources */,
-				53950D032E38CDF60046EFA5 /* StoreKitTestCertificate.cer in Resources */,
 				536530752DCB01810020026B /* DarumadropOne-Regular.ttf in Resources */,
 				536530762DCB01810020026B /* OtomanopeeOne-Regular.ttf in Resources */,
 				536530772DCB01810020026B /* MBProgressHUD.bundle in Resources */,
 				532384362E49DF730050AA66 /* GoogleService-Info.plist in Resources */,
 				388FB18A2DA1761F006C52AC /* Localizable.strings in Resources */,
-				53950D052E38D3D20046EFA5 /* chatStoreKitTest.storekit in Resources */,
 				53A28A3D2E4C785F00439EA2 /* flash.png in Resources */,
 				53A28A3E2E4C785F00439EA2 /* enhance.png in Resources */,
 				53A28A3F2E4C785F00439EA2 /* enhance@3x.png in Resources */,
 				53A28A402E4C785F00439EA2 /* flash@3x.png in Resources */,
+				53A28ADE2E53075900439EA2 /* Products.plist in Resources */,
 				53A28A412E4C785F00439EA2 /* rotate@2x.png in Resources */,
 				53A28A422E4C785F00439EA2 /* enhance@2x.png in Resources */,
 				53A28A432E4C785F00439EA2 /* rotate@3x.png in Resources */,
 				53A28A442E4C785F00439EA2 /* flashUnavailable@3x.png in Resources */,
+				53A28AE72E5307E500439EA2 /* StoreKitTest.storekit in Resources */,
 				53A28A452E4C785F00439EA2 /* flashUnavailable@2x.png in Resources */,
 				53A28A462E4C785F00439EA2 /* flash@2x.png in Resources */,
 				53A28A482E4C785F00439EA2 /* rotate.png in Resources */,
@@ -1122,6 +1150,7 @@
 				53A289C82E4C65E500439EA2 /* ScannerManager.swift in Sources */,
 				5365307F2DCB01810020026B /* UIViewController+Extension.swift in Sources */,
 				536530812DCB01810020026B /* SuperTableViewCell.swift in Sources */,
+				533D9D412E530A4000E401B3 /* CoreDataViewController.swift in Sources */,
 				536530832DCB01810020026B /* CustomButton.swift in Sources */,
 				536530842DCB01810020026B /* Dictionary+Extension.swift in Sources */,
 				536530862DCB01810020026B /* CGFloat+Extension.swift in Sources */,
@@ -1245,6 +1274,10 @@
 				536530DD2DCB01810020026B /* UIView+Extension.swift in Sources */,
 				536530E12DCB01810020026B /* SubscribeView.swift in Sources */,
 				536530E22DCB01810020026B /* Date+Extension.swift in Sources */,
+				53A28AE22E53075900439EA2 /* PurchaseViewController.swift in Sources */,
+				53A28AE32E53075900439EA2 /* PurchaseTableHeaderView.swift in Sources */,
+				53A28AE42E53075900439EA2 /* Store.swift in Sources */,
+				53A28AE52E53075900439EA2 /* PurchaseTableViewCell.swift in Sources */,
 				536530E32DCB01810020026B /* Double+Extension.swift in Sources */,
 				536530E62DCB01810020026B /* Common.swift in Sources */,
 				530AF5E62E288A34001AF363 /* BottomSheetView.swift in Sources */,
