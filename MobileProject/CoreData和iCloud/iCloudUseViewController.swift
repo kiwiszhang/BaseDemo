@@ -64,13 +64,12 @@ class iCloudUseViewController: SuperViewController {
         guard let self = self else {return}
         
         randomInt = Int.random(in: 1...1000000000000)
-        saveImageToSandbox(image: imageView.image!, imageName: "image" + "\(randomInt)")
+        _ = saveImageToSandbox(image: imageView.image!, imageName: "image" + "\(randomInt)")
     }
     
     private lazy var saveToiCloud = UILabel().text("同步到iCloud").hnFont(size: 14.h, weight: .bold).backgroundColor(.systemCyan).color(.red).centerAligned().onTap {
         [weak self] in
         guard let self = self else {return}
-        
         let image = loadImageFromDocumentDirectory(fileName: "image" + "\(randomInt)")
         addPhoto(image!)
     }
@@ -78,8 +77,32 @@ class iCloudUseViewController: SuperViewController {
     private lazy var iCloudData = UILabel().text("从iCloud获取数据").hnFont(size: 14.h, weight: .bold).backgroundColor(.systemCyan).color(.red).centerAligned().onTap {
         [weak self] in
         guard let self = self else {return}
-        
         loadAll()
+    }
+    
+    private lazy var deleteFromiCloud = UILabel().text("删除iCloud数据").hnFont(size: 14.h, weight: .bold).backgroundColor(.systemCyan).color(.red).centerAligned().onTap {
+        [weak self] in
+        guard let self = self else {return}
+        
+        let store = PhotoStore(context: ctx)
+        do {
+            try store.delete(dataList.first!)
+        } catch {
+            print("delete error: \(error)")
+        }
+        
+    }
+    
+    private lazy var updateiCloudData = UILabel().text("更新iCloud数据").hnFont(size: 14.h, weight: .bold).backgroundColor(.systemCyan).color(.red).centerAligned().onTap {
+        [weak self] in
+        guard let self = self else {return}
+        let store = PhotoStore(context: ctx)
+        do {
+           let fatchlist = try store.fetchByField("title", value: "image105127232447")
+            print(fatchlist)
+        } catch {
+            print("delete error: \(error)")
+        }
     }
     
     private lazy var collectionView: UICollectionView = {
@@ -107,7 +130,7 @@ class iCloudUseViewController: SuperViewController {
     // MARK: - ===================Intial Methods=======================
     override func setUpUI() {
         title = "CoreData+CloudKit数据同步"
-        view.addChildView([selectPhoto,saveToSandbox,saveToiCloud,iCloudData,imageView,collectionView])
+        view.addChildView([selectPhoto,saveToSandbox,saveToiCloud,iCloudData,deleteFromiCloud,updateiCloudData,imageView,collectionView])
         selectPhoto.snp.makeConstraints { make in
             make.width.equalTo(150.w)
             make.height.equalTo(50.h)
@@ -135,6 +158,19 @@ class iCloudUseViewController: SuperViewController {
             make.right.equalToSuperview().offset(-10.w)
             make.top.equalTo(selectPhoto.snp.bottom).offset(10.h)
         }
+        deleteFromiCloud.snp.makeConstraints { make in
+            make.width.equalTo(150.w)
+            make.height.equalTo(50.h)
+            make.left.equalToSuperview().offset(10.w)
+            make.top.equalTo(saveToiCloud.snp.bottom).offset(10.h)
+        }
+        
+        updateiCloudData.snp.makeConstraints { make in
+            make.width.equalTo(150.w)
+            make.height.equalTo(50.h)
+            make.right.equalToSuperview().offset(-10.w)
+            make.top.equalTo(saveToiCloud.snp.bottom).offset(10.h)
+        }
         
         imageView.snp.makeConstraints { make in
             make.width.height.equalTo(100.w)
@@ -143,7 +179,7 @@ class iCloudUseViewController: SuperViewController {
         
         collectionView.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
-            make.top.equalTo(saveToiCloud.snp.bottom)
+            make.top.equalTo(updateiCloudData.snp.bottom)
             make.height.equalTo(120.h)
         }
     }
@@ -273,7 +309,8 @@ extension iCloudUseViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+        
+        
     }
 }
 
@@ -303,6 +340,7 @@ class cloudCollecionViewCell: SuperCollectionViewCell {
     
     func configure(with item: PhotoItem) {
         imgView.image(UIImage(data: (item.imageData)!))
+        print(item.title! as String)
         titleLab.text(item.title)
     }
     

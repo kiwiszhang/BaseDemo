@@ -162,6 +162,8 @@
 		53A28A812E4F1D0A00439EA2 /* PhotoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A28A802E4F1D0A00439EA2 /* PhotoStore.swift */; };
 		53A28A832E4F238900439EA2 /* iCloudRecordAssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A28A822E4F238900439EA2 /* iCloudRecordAssetViewController.swift */; };
 		53A28A902E4F36B900439EA2 /* CloudKitPhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A28A8F2E4F36B900439EA2 /* CloudKitPhotoManager.swift */; };
+		53A28A922E52F5CF00439EA2 /* iCloudDocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A28A912E52F5CF00439EA2 /* iCloudDocumentViewController.swift */; };
+		53A28A942E52F73300439EA2 /* iCloudDocumentsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A28A932E52F73300439EA2 /* iCloudDocumentsManager.swift */; };
 		53AB84F32E347CB80073C438 /* BottomPushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB84F22E347CB80073C438 /* BottomPushAnimator.swift */; };
 		53BB5E622DCD91DD00A3C585 /* EducationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BB5E5F2DCD91DD00A3C585 /* EducationModel.swift */; };
 		53BB5E632DCD91DD00A3C585 /* DataBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BB5E5D2DCD91DD00A3C585 /* DataBaseViewController.swift */; };
@@ -358,6 +360,8 @@
 		53A28A802E4F1D0A00439EA2 /* PhotoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoStore.swift; sourceTree = "<group>"; };
 		53A28A822E4F238900439EA2 /* iCloudRecordAssetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCloudRecordAssetViewController.swift; sourceTree = "<group>"; };
 		53A28A8F2E4F36B900439EA2 /* CloudKitPhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitPhotoManager.swift; sourceTree = "<group>"; };
+		53A28A912E52F5CF00439EA2 /* iCloudDocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCloudDocumentViewController.swift; sourceTree = "<group>"; };
+		53A28A932E52F73300439EA2 /* iCloudDocumentsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCloudDocumentsManager.swift; sourceTree = "<group>"; };
 		53AB84F22E347CB80073C438 /* BottomPushAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomPushAnimator.swift; sourceTree = "<group>"; };
 		53BB5E5C2DCD91DD00A3C585 /* DataBaseTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseTool.swift; sourceTree = "<group>"; };
 		53BB5E5D2DCD91DD00A3C585 /* DataBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseViewController.swift; sourceTree = "<group>"; };
@@ -859,7 +863,9 @@
 			children = (
 				53A28A772E4F09E700439EA2 /* iCloudUseViewController.swift */,
 				53A28A8F2E4F36B900439EA2 /* CloudKitPhotoManager.swift */,
+				53A28A932E52F73300439EA2 /* iCloudDocumentsManager.swift */,
 				53A28A822E4F238900439EA2 /* iCloudRecordAssetViewController.swift */,
+				53A28A912E52F5CF00439EA2 /* iCloudDocumentViewController.swift */,
 				53A28A7B2E4F136300439EA2 /* PersistenceController.swift */,
 				53A28A802E4F1D0A00439EA2 /* PhotoStore.swift */,
 				53A28A792E4F0A9600439EA2 /* List01ViewController.swift */,
@@ -1144,6 +1150,7 @@
 				5365309B2DCB01810020026B /* Note.swift in Sources */,
 				53A289CA2E4C731100439EA2 /* WeScanViewController111.swift in Sources */,
 				5365309C2DCB01810020026B /* String+Extension.swift in Sources */,
+				53A28A922E52F5CF00439EA2 /* iCloudDocumentViewController.swift in Sources */,
 				53A289692E4B392F00439EA2 /* CustomTabBar.swift in Sources */,
 				5365309E2DCB01810020026B /* SuperCollectionViewCell.swift in Sources */,
 				53A28A7C2E4F136300439EA2 /* PersistenceController.swift in Sources */,
@@ -1208,6 +1215,7 @@
 				53BB5E622DCD91DD00A3C585 /* EducationModel.swift in Sources */,
 				53BB5E632DCD91DD00A3C585 /* DataBaseViewController.swift in Sources */,
 				53BB5E642DCD91DD00A3C585 /* DataBaseTool.swift in Sources */,
+				53A28A942E52F73300439EA2 /* iCloudDocumentsManager.swift in Sources */,
 				53BB5E652DCD91DD00A3C585 /* EducationDetailModel.swift in Sources */,
 				536367AD2DD469860018FE0E /* CustomTransDelegate.swift in Sources */,
 				536367AE2DD469860018FE0E /* CustomPresentingViewController.swift in Sources */,
