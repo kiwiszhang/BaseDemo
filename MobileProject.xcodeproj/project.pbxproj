@@ -19,6 +19,8 @@
 		532384362E49DF730050AA66 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 532384352E49DF730050AA66 /* GoogleService-Info.plist */; };
 		533D12442E1BAB4300C97724 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 533D12432E1BAB4300C97724 /* LaunchScreen.storyboard */; };
 		533D9D412E530A4000E401B3 /* CoreDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533D9D402E530A4000E401B3 /* CoreDataViewController.swift */; };
+		533D9D432E5311E700E401B3 /* CoerDataPersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533D9D422E5311E700E401B3 /* CoerDataPersistenceController.swift */; };
+		533D9D462E53124400E401B3 /* CoreDataTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 533D9D442E53124400E401B3 /* CoreDataTest.xcdatamodeld */; };
 		5351BAF02E448E54007C9F97 /* ABTestDebugConfigPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5351BAEF2E448E54007C9F97 /* ABTestDebugConfigPage.swift */; };
 		5351BAF22E4491B3007C9F97 /* AppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5351BAF12E4491B3007C9F97 /* AppHelper.swift */; };
 		5351BAF42E4491DC007C9F97 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5351BAF32E4491DC007C9F97 /* UserDefaults.swift */; };
@@ -210,6 +212,8 @@
 		532384352E49DF730050AA66 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		533D12432E1BAB4300C97724 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		533D9D402E530A4000E401B3 /* CoreDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataViewController.swift; sourceTree = "<group>"; };
+		533D9D422E5311E700E401B3 /* CoerDataPersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoerDataPersistenceController.swift; sourceTree = "<group>"; };
+		533D9D452E53124400E401B3 /* CoreDataTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataTest.xcdatamodel; sourceTree = "<group>"; };
 		5351BAEF2E448E54007C9F97 /* ABTestDebugConfigPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABTestDebugConfigPage.swift; sourceTree = "<group>"; };
 		5351BAF12E4491B3007C9F97 /* AppHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHelper.swift; sourceTree = "<group>"; };
 		5351BAF32E4491DC007C9F97 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
@@ -451,6 +455,8 @@
 			isa = PBXGroup;
 			children = (
 				533D9D402E530A4000E401B3 /* CoreDataViewController.swift */,
+				533D9D422E5311E700E401B3 /* CoerDataPersistenceController.swift */,
+				533D9D442E53124400E401B3 /* CoreDataTest.xcdatamodeld */,
 			);
 			path = "数据持久化";
 			sourceTree = "<group>";
@@ -1263,11 +1269,13 @@
 				536530CD2DCB01810020026B /* VersionTool.swift in Sources */,
 				536530CE2DCB01810020026B /* SuperViewController.swift in Sources */,
 				536530CF2DCB01810020026B /* Images.swift in Sources */,
+				533D9D432E5311E700E401B3 /* CoerDataPersistenceController.swift in Sources */,
 				53950CFF2E38B1B20046EFA5 /* EventReport.swift in Sources */,
 				536530D42DCB01810020026B /* RunTimeTool.swift in Sources */,
 				536530D52DCB01810020026B /* PageControlView.swift in Sources */,
 				536530D72DCB01810020026B /* ViewController.swift in Sources */,
 				536530D82DCB01810020026B /* UIImageView+Extension.swift in Sources */,
+				533D9D462E53124400E401B3 /* CoreDataTest.xcdatamodeld in Sources */,
 				536530D92DCB01810020026B /* CALayer+Extension.swift in Sources */,
 				536530DA2DCB01810020026B /* Int+Extension.swift in Sources */,
 				536530DC2DCB01810020026B /* UILable+Extension.swift in Sources */,
@@ -1555,6 +1563,16 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
+		533D9D442E53124400E401B3 /* CoreDataTest.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				533D9D452E53124400E401B3 /* CoreDataTest.xcdatamodel */,
+			);
+			currentVersion = 533D9D452E53124400E401B3 /* CoreDataTest.xcdatamodel */;
+			path = CoreDataTest.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		53A28A7D2E4F193100439EA2 /* CoreDataICloud.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
