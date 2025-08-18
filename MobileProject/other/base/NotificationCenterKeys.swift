@@ -15,6 +15,9 @@ class NotificationCenterKeys {
         /// 挽留购买页模态消失
         case kModalDidDismiss = "NotificationCenterKeys_kModalDidDismiss"
 
+        /// iCloud数据有变动通知
+        case kICloudDataChanged = "NotificationCenterKeys_kICloudDataChanged"
+
         
     }
 

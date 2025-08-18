@@ -94,6 +94,15 @@ class iCloudRecordAssetViewController: SuperViewController {
         super.viewDidLoad()
         setUpUI()
         getData()
+        
+        NotificationCenter.default.addObserver(
+                   self,
+                   selector: #selector(updateData),
+                   name: Notification.Name(NotificationCenterKeys.CenterKeys.kICloudDataChanged.rawValue),
+                   object: nil
+               )
+//        NotificationCenter.default.post(name: NSNotification.Name(NotificationCenterKeys.CenterKeys.kICloudDataChanged.rawValue), object: nil)
+        kkNotification_add(observer: self, selector: #selector(updateData), name: NotificationCenterKeys.CenterKeys.kICloudDataChanged.rawValue)
     }
     
     // MARK: - ===================Intial Methods=======================
@@ -159,7 +168,12 @@ class iCloudRecordAssetViewController: SuperViewController {
         
     }
     // MARK: - =====================actions==========================
-    
+    @objc func updateData() {
+        CloudKitPhotoManager.queryFromRecord { [self] records, error in
+            self.dataList = records
+            self.collectionView.reloadData()
+        }
+    }
     
     // MARK: - =====================delegate==========================
     

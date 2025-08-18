@@ -9,9 +9,10 @@ import UIKit
 import FirebaseCore
 import Localize_Swift
 import FirebaseCrashlytics
+import CloudKit
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     var allowLandscapeRight = false
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -21,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         startAppInfo()
         //创建表
         creatTable()
+        // cloud处理
+        iCloudHandle(application)
         return true
     }
     
@@ -30,10 +33,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return .portrait
     }
+    
+    
+    func application(_ application: UIApplication,
+                     didReceiveRemoteNotification userInfo: [AnyHashable : Any],
+                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+        CloudKitPhotoManager.handleNotification(with: userInfo)
+        completionHandler(.newData)
+    }
+
 }
 
 private
 extension AppDelegate {
+    
+    func iCloudHandle(_ application: UIApplication) {
+        // 请求通知权限
+        UNUserNotificationCenter.current().delegate = self
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
+            if granted {
+                DispatchQueue.main.async {
+                    application.registerForRemoteNotifications()
+                }
+            }
+        }
+        // 注册订阅（比如监听 Person 表）
+        CloudKitPhotoManager.creatSubscription(to: RecordType.personType.rawValue)
+    }
+    
     func loadUserInfo() {
         SubscriptionManager.shared.loadAllProducts()
         if !isPremiumUser {
@@ -90,4 +118,5 @@ extension AppDelegate {
         DataBaseTool.sharedInstance.creatTable(model: ChatHistoryData())
     }
 }
+
 

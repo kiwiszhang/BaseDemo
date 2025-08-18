@@ -168,7 +168,9 @@ class CloudKitPhotoManager {
                     print("iCloud 可用 ✅")
                 let db = container.privateCloudDatabase
                 // 1. 查询条件
-                let predicate = NSPredicate(format: "title == %@", title)
+//                let predicate = NSPredicate(format: "title == %@", title)
+                //查询以什么开头的
+                let predicate = NSPredicate(format: "title BEGINSWITH %@", "image")
                 let query = CKQuery(recordType: RecordType.personType.rawValue, predicate: predicate)
                 db.fetch(withQuery: query, inZoneWith: nil, desiredKeys: nil, resultsLimit: CKQueryOperation.maximumResults) { result in
                     switch result {
@@ -296,7 +298,62 @@ class CloudKitPhotoManager {
                  }
         }
     }
+    /// 创建iCloud更新订阅
+    /// /// 订阅某个 recordType 的变化
+    static func creatSubscription(to recordType: String) {
+        let container = CKContainer(identifier: iCloudContainerID)
+        let db = container.privateCloudDatabase
+        let subscriptionID = "\(recordType)-changes"
+        // 先删除旧的，避免重复
+        db.fetch(withSubscriptionID: subscriptionID) { existing, error in
+            if let existing = existing {
+                db.delete(withSubscriptionID: subscriptionID) { _, _ in }
+            }
+            
+            let subscription = CKQuerySubscription(
+                recordType: recordType,
+                predicate: NSPredicate(value: true),
+                subscriptionID: subscriptionID,
+                options: [.firesOnRecordCreation, .firesOnRecordUpdate, .firesOnRecordDeletion]
+            )
+            
+            let notificationInfo = CKSubscription.NotificationInfo()
+            notificationInfo.shouldSendContentAvailable = true // 静默推送
+            notificationInfo.alertBody = "\(recordType) 数据有更新"
+            subscription.notificationInfo = notificationInfo
+            
+            db.save(subscription) { subscription, error in
+                if let error = error {
+                    print("❌ 订阅失败: \(error)")
+                } else {
+                    print("✅ 已订阅 \(recordType) 的变化")
+                }
+            }
+        }
+    }
+    /// 处理远程推送
+    static func handleNotification(with userInfo: [AnyHashable : Any]) {
+        let notification = CKNotification(fromRemoteNotificationDictionary: userInfo)
+        if let queryNotification = notification as? CKQueryNotification {
+            let recordID = queryNotification.recordID
+            print("📩 收到通知: recordID=\(String(describing: recordID))")
 
+            switch queryNotification.queryNotificationReason {
+            case .recordCreated: print("有新数据")
+            case .recordUpdated: print("数据被更新")
+            case .recordDeleted: print("数据被删除")
+            @unknown default: break
+            }
+
+            // 发出通知，让 UI 刷新
+            DispatchQueue.main.async {
+                NotificationCenter.default.post(
+                    name: Notification.Name(NotificationCenterKeys.CenterKeys.kICloudDataChanged.rawValue),
+                    object: queryNotification
+                )
+            }
+        }
+    }
     
     // 把 UIImage 存为 CKAsset
     static func savePhotoToCloudKit(image: UIImage, fileName: String, completion: @escaping (Result<CKAsset, Error>) -> Void) {
