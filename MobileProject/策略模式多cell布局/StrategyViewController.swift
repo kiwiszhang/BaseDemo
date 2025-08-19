@@ -15,6 +15,14 @@ class StrategyViewController: SuperViewController {
         "cellA": StrategyCellA.self,
         "cellB": StrategyCellB.self
     ]
+    
+    // Header/Footer 映射表
+    private let supplementaryMap: [String: (UICollectionReusableView & MeHomeSupplementaryProtocol).Type] = [
+        "headerA": StrategyHeaderA.self,
+        "headerB": StrategyHeaderB.self,
+        "footerA": StrategyFooterA.self,
+        "footerB": StrategyFooterB.self
+    ]
 
     // MARK: - =====================lazy load=======================
     private lazy var collectionView: UICollectionView = {
@@ -53,13 +61,18 @@ class StrategyViewController: SuperViewController {
             collectionView.registerCells(cellType)
         }
         
-        let cellAList = ["AAA","BBB","CCC","DDD","EEE","FFF"]
-        let cellBList = ["222","333","444","555"]
+        // 注册 Header/Footer
+        for viewType in supplementaryMap.values {
+            collectionView.registerSupplementaryViews(viewType, kind: viewType.kind)
+        }
+        
+        let cellAList = ["AAA","BBB","CCC","DDD","EEE","FFF","AAA","BBB","CCC","DDD","EEE","FFF","AAA","BBB","CCC","DDD","EEE","FFF"]
+        let cellBList = ["222","333","444","555","222","333","444","555","222","333","444","555"]
         
         // 模拟数据
         sectionArr = [
-            MeHomeSectionModel(type: "cellA",data: SectionDetailModel(dataList: cellAList)),
-            MeHomeSectionModel(type: "cellB",data: SectionDetailModel(dataList: cellBList)),
+            MeHomeSectionModel(type: "cellA",headerType: "headerB",footerType: "footerA",headerData: "AAAA",footerData: "AAA",data: SectionDetailModel(dataList: cellAList)),
+            MeHomeSectionModel(type: "cellB",headerType: "headerA",footerType: "footerB",headerData: "BBBB",footerData: "BBB",data: SectionDetailModel(dataList: cellBList)),
         ]
     }
     // MARK: - =====================actions==========================
@@ -124,4 +137,35 @@ extension StrategyViewController: UICollectionViewDelegateFlowLayout, UICollecti
         let model = sectionArr[section]
         return cellMap[model.type]?.interitemSpacing(for: model) ?? 0
     }
+    // MARK: - Header/Footer
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let model = sectionArr[indexPath.section]
+        
+        // 根据 section 配置的 headerType/footerType 来决定用哪个类
+        let typeKey = (kind == UICollectionView.elementKindSectionHeader) ? model.headerType : model.footerType
+        
+        if let key = typeKey, let viewType = supplementaryMap[key] {
+            let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: viewType.viewId, for: indexPath) as! (UICollectionReusableView & MeHomeSupplementaryProtocol)
+            view.configure(with: model, section: indexPath.section, controller: self)
+            return view
+        }
+        return UICollectionReusableView()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        let model = sectionArr[section]
+        if let key = model.headerType, let viewType = supplementaryMap[key] {
+            return viewType.sizeForSupplementary(for: model)
+        }
+        return .zero
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        let model = sectionArr[section]
+        if let key = model.footerType, let viewType = supplementaryMap[key] {
+            return viewType.sizeForSupplementary(for: model)
+        }
+        return .zero
+    }
+    
 }

@@ -26,12 +26,12 @@ class StrategyCellB: SuperCollectionViewCell,MeHomeCellProtocol {
     }
     
     func configure(with model: MeHomeSectionModel, indexPath: IndexPath, controller: UIViewController) {
-        titleLab.text = "CellB \(model.data?.dataList[indexPath.row] ?? "")"
+        titleLab.text = "CellB \(model.cellData?.dataList[indexPath.row] ?? "")"
     }
     
     /// 返回当前这一组有多少个cell
     static func numberOfItems(for section: MeHomeSectionModel) -> Int {
-        return (section.data?.dataList.count)!
+        return (section.cellData?.dataList.count)!
     }
     /// 返回当前这组的cell大小
     static func sizeForItem(for section: MeHomeSectionModel) -> CGSize {

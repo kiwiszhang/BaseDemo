@@ -15,14 +15,23 @@ class SectionDetailModel {
     }
 }
 
-
 // MARK: - Section 数据模型
 class MeHomeSectionModel {
-    var type: String   // 标记该 section 用什么 cell 类型
-    var data: SectionDetailModel?     // 存放该 section 的数据
-    init(type: String, data: SectionDetailModel? = nil) {
+    var type: String        // cell 类型
+    var headerType: String? // header 类型
+    var footerType: String? // footer 类型
+    var cellData: SectionDetailModel?     // 存放该 section 的数据
+    var headerData: String?
+    var footerData: String?
+
+    
+    init(type: String, headerType: String? = nil, footerType: String? = nil,headerData: String? = nil, footerData: String? = nil, data: SectionDetailModel? = nil) {
         self.type = type
-        self.data = data
+        self.headerType = headerType
+        self.footerType = footerType
+        self.cellData = data
+        self.footerData = footerData
+        self.headerData = headerData
     }
 }
 
@@ -56,6 +65,19 @@ extension MeHomeCellProtocol {
     
     func didSelectItem() {}
 }
+
+// MARK: - Header/Footer 策略协议
+protocol MeHomeSupplementaryProtocol where Self: SuperCollectionReusableView {
+    static var kind: String { get }   // UICollectionView.elementKindSectionHeader / Footer
+    static var viewId: String { get }
+    static func sizeForSupplementary(for section: MeHomeSectionModel) -> CGSize
+    func configure(with model: MeHomeSectionModel, section: Int, controller: UIViewController)
+}
+
+extension MeHomeSupplementaryProtocol {
+    static func sizeForSupplementary(for section: MeHomeSectionModel) -> CGSize { return .zero }
+}
+
 
 // MARK: - Header
 class MeHomeHeaderView: SuperCollectionReusableView {

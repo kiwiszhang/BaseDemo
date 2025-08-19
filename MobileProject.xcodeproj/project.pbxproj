@@ -25,6 +25,10 @@
 		533D9D5B2E54702700E401B3 /* StrategyBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533D9D5A2E54702700E401B3 /* StrategyBase.swift */; };
 		533D9D5D2E5470D100E401B3 /* StrategyCellA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533D9D5C2E5470D100E401B3 /* StrategyCellA.swift */; };
 		533D9D5F2E5471D100E401B3 /* StrategyCellB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533D9D5E2E5471D100E401B3 /* StrategyCellB.swift */; };
+		533D9D612E54818200E401B3 /* StrategyHeaderA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533D9D602E54818200E401B3 /* StrategyHeaderA.swift */; };
+		533D9D632E5481DE00E401B3 /* StrategyHeaderB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533D9D622E5481DE00E401B3 /* StrategyHeaderB.swift */; };
+		533D9D652E54824900E401B3 /* StrategyFooterB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533D9D642E54824900E401B3 /* StrategyFooterB.swift */; };
+		533D9D672E54825A00E401B3 /* StrategyFooterA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533D9D662E54825A00E401B3 /* StrategyFooterA.swift */; };
 		5351BAF02E448E54007C9F97 /* ABTestDebugConfigPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5351BAEF2E448E54007C9F97 /* ABTestDebugConfigPage.swift */; };
 		5351BAF22E4491B3007C9F97 /* AppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5351BAF12E4491B3007C9F97 /* AppHelper.swift */; };
 		5351BAF42E4491DC007C9F97 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5351BAF32E4491DC007C9F97 /* UserDefaults.swift */; };
@@ -222,6 +226,10 @@
 		533D9D5A2E54702700E401B3 /* StrategyBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyBase.swift; sourceTree = "<group>"; };
 		533D9D5C2E5470D100E401B3 /* StrategyCellA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyCellA.swift; sourceTree = "<group>"; };
 		533D9D5E2E5471D100E401B3 /* StrategyCellB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyCellB.swift; sourceTree = "<group>"; };
+		533D9D602E54818200E401B3 /* StrategyHeaderA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyHeaderA.swift; sourceTree = "<group>"; };
+		533D9D622E5481DE00E401B3 /* StrategyHeaderB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyHeaderB.swift; sourceTree = "<group>"; };
+		533D9D642E54824900E401B3 /* StrategyFooterB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyFooterB.swift; sourceTree = "<group>"; };
+		533D9D662E54825A00E401B3 /* StrategyFooterA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyFooterA.swift; sourceTree = "<group>"; };
 		5351BAEF2E448E54007C9F97 /* ABTestDebugConfigPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABTestDebugConfigPage.swift; sourceTree = "<group>"; };
 		5351BAF12E4491B3007C9F97 /* AppHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHelper.swift; sourceTree = "<group>"; };
 		5351BAF32E4491DC007C9F97 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
@@ -476,6 +484,10 @@
 				533D9D582E546F5E00E401B3 /* StrategyViewController.swift */,
 				533D9D5C2E5470D100E401B3 /* StrategyCellA.swift */,
 				533D9D5E2E5471D100E401B3 /* StrategyCellB.swift */,
+				533D9D602E54818200E401B3 /* StrategyHeaderA.swift */,
+				533D9D622E5481DE00E401B3 /* StrategyHeaderB.swift */,
+				533D9D662E54825A00E401B3 /* StrategyFooterA.swift */,
+				533D9D642E54824900E401B3 /* StrategyFooterB.swift */,
 				533D9D5A2E54702700E401B3 /* StrategyBase.swift */,
 			);
 			path = "策略模式多cell布局";
@@ -1220,6 +1232,7 @@
 				53A28A1C2E4C785F00439EA2 /* CIRectangleDetector.swift in Sources */,
 				53A28A1D2E4C785F00439EA2 /* UIImage+Orientation.swift in Sources */,
 				533D9D5D2E5470D100E401B3 /* StrategyCellA.swift in Sources */,
+				533D9D672E54825A00E401B3 /* StrategyFooterA.swift in Sources */,
 				53A28A1E2E4C785F00439EA2 /* EditImageViewController.swift in Sources */,
 				53A28A1F2E4C785F00439EA2 /* CaptureSession.swift in Sources */,
 				53A28A202E4C785F00439EA2 /* AVCaptureVideoOrientation+Utils.swift in Sources */,
@@ -1270,6 +1283,7 @@
 				536530BD2DCB01810020026B /* UIApplication+Extension.swift in Sources */,
 				536530BE2DCB01810020026B /* UITextField+Create.swift in Sources */,
 				536530C02DCB01810020026B /* Strings.swift in Sources */,
+				533D9D632E5481DE00E401B3 /* StrategyHeaderB.swift in Sources */,
 				53BB5E622DCD91DD00A3C585 /* EducationModel.swift in Sources */,
 				53BB5E632DCD91DD00A3C585 /* DataBaseViewController.swift in Sources */,
 				53BB5E642DCD91DD00A3C585 /* DataBaseTool.swift in Sources */,
@@ -1309,7 +1323,9 @@
 				53A28AE32E53075900439EA2 /* PurchaseTableHeaderView.swift in Sources */,
 				53A28AE42E53075900439EA2 /* Store.swift in Sources */,
 				53A28AE52E53075900439EA2 /* PurchaseTableViewCell.swift in Sources */,
+				533D9D612E54818200E401B3 /* StrategyHeaderA.swift in Sources */,
 				536530E32DCB01810020026B /* Double+Extension.swift in Sources */,
+				533D9D652E54824900E401B3 /* StrategyFooterB.swift in Sources */,
 				536530E62DCB01810020026B /* Common.swift in Sources */,
 				530AF5E62E288A34001AF363 /* BottomSheetView.swift in Sources */,
 				530AF5F32E2F76E9001AF363 /* ChatHistoryData.swift in Sources */,
