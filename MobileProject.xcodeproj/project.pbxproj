@@ -21,6 +21,10 @@
 		533D9D412E530A4000E401B3 /* CoreDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533D9D402E530A4000E401B3 /* CoreDataViewController.swift */; };
 		533D9D432E5311E700E401B3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533D9D422E5311E700E401B3 /* CoreDataManager.swift */; };
 		533D9D462E53124400E401B3 /* CoreDataTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 533D9D442E53124400E401B3 /* CoreDataTest.xcdatamodeld */; };
+		533D9D592E546F5E00E401B3 /* StrategyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533D9D582E546F5E00E401B3 /* StrategyViewController.swift */; };
+		533D9D5B2E54702700E401B3 /* StrategyBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533D9D5A2E54702700E401B3 /* StrategyBase.swift */; };
+		533D9D5D2E5470D100E401B3 /* StrategyCellA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533D9D5C2E5470D100E401B3 /* StrategyCellA.swift */; };
+		533D9D5F2E5471D100E401B3 /* StrategyCellB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533D9D5E2E5471D100E401B3 /* StrategyCellB.swift */; };
 		5351BAF02E448E54007C9F97 /* ABTestDebugConfigPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5351BAEF2E448E54007C9F97 /* ABTestDebugConfigPage.swift */; };
 		5351BAF22E4491B3007C9F97 /* AppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5351BAF12E4491B3007C9F97 /* AppHelper.swift */; };
 		5351BAF42E4491DC007C9F97 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5351BAF32E4491DC007C9F97 /* UserDefaults.swift */; };
@@ -214,6 +218,10 @@
 		533D9D402E530A4000E401B3 /* CoreDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataViewController.swift; sourceTree = "<group>"; };
 		533D9D422E5311E700E401B3 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		533D9D452E53124400E401B3 /* CoreDataTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataTest.xcdatamodel; sourceTree = "<group>"; };
+		533D9D582E546F5E00E401B3 /* StrategyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyViewController.swift; sourceTree = "<group>"; };
+		533D9D5A2E54702700E401B3 /* StrategyBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyBase.swift; sourceTree = "<group>"; };
+		533D9D5C2E5470D100E401B3 /* StrategyCellA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyCellA.swift; sourceTree = "<group>"; };
+		533D9D5E2E5471D100E401B3 /* StrategyCellB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyCellB.swift; sourceTree = "<group>"; };
 		5351BAEF2E448E54007C9F97 /* ABTestDebugConfigPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABTestDebugConfigPage.swift; sourceTree = "<group>"; };
 		5351BAF12E4491B3007C9F97 /* AppHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHelper.swift; sourceTree = "<group>"; };
 		5351BAF32E4491DC007C9F97 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
@@ -425,6 +433,7 @@
 		388FB08B2DA17037006C52AC /* MobileProject */ = {
 			isa = PBXGroup;
 			children = (
+				533D9D572E546F1B00E401B3 /* 策略模式多cell布局 */,
 				533D9D3F2E530A2B00E401B3 /* 数据持久化 */,
 				53A28ADC2E53075900439EA2 /* Purchase内购 */,
 				53A28A762E4F09B700439EA2 /* iCloud数据同步 */,
@@ -459,6 +468,17 @@
 				533D9D442E53124400E401B3 /* CoreDataTest.xcdatamodeld */,
 			);
 			path = "数据持久化";
+			sourceTree = "<group>";
+		};
+		533D9D572E546F1B00E401B3 /* 策略模式多cell布局 */ = {
+			isa = PBXGroup;
+			children = (
+				533D9D582E546F5E00E401B3 /* StrategyViewController.swift */,
+				533D9D5C2E5470D100E401B3 /* StrategyCellA.swift */,
+				533D9D5E2E5471D100E401B3 /* StrategyCellB.swift */,
+				533D9D5A2E54702700E401B3 /* StrategyBase.swift */,
+			);
+			path = "策略模式多cell布局";
 			sourceTree = "<group>";
 		};
 		5351BAEE2E448E4D007C9F97 /* ABTest */ = {
@@ -1173,6 +1193,7 @@
 				536367A72DD463CE0018FE0E /* CustomScrViewCustomCollectionViewCell.swift in Sources */,
 				536367A82DD463CE0018FE0E /* CustomScrView.swift in Sources */,
 				53BB5E6C2DCD935200A3C585 /* CustomNineGirdView.swift in Sources */,
+				533D9D592E546F5E00E401B3 /* StrategyViewController.swift in Sources */,
 				5351BAF22E4491B3007C9F97 /* AppHelper.swift in Sources */,
 				5365308E2DCB01810020026B /* SuperTableViewHeaderFooterView.swift in Sources */,
 				536530902DCB01810020026B /* UILabel+Create.swift in Sources */,
@@ -1184,6 +1205,7 @@
 				5351BAF42E4491DC007C9F97 /* UserDefaults.swift in Sources */,
 				5365309B2DCB01810020026B /* Note.swift in Sources */,
 				53A289CA2E4C731100439EA2 /* WeScanViewController111.swift in Sources */,
+				533D9D5F2E5471D100E401B3 /* StrategyCellB.swift in Sources */,
 				5365309C2DCB01810020026B /* String+Extension.swift in Sources */,
 				53A28A922E52F5CF00439EA2 /* iCloudDocumentViewController.swift in Sources */,
 				53A289692E4B392F00439EA2 /* CustomTabBar.swift in Sources */,
@@ -1197,6 +1219,7 @@
 				53A28A1B2E4C785F00439EA2 /* ReviewViewController.swift in Sources */,
 				53A28A1C2E4C785F00439EA2 /* CIRectangleDetector.swift in Sources */,
 				53A28A1D2E4C785F00439EA2 /* UIImage+Orientation.swift in Sources */,
+				533D9D5D2E5470D100E401B3 /* StrategyCellA.swift in Sources */,
 				53A28A1E2E4C785F00439EA2 /* EditImageViewController.swift in Sources */,
 				53A28A1F2E4C785F00439EA2 /* CaptureSession.swift in Sources */,
 				53A28A202E4C785F00439EA2 /* AVCaptureVideoOrientation+Utils.swift in Sources */,
@@ -1293,6 +1316,7 @@
 				53A2899F2E4C391000439EA2 /* WeScanViewController.swift in Sources */,
 				536530EC2DCB01810020026B /* UIControl+Create.swift in Sources */,
 				388FB08F2DA17037006C52AC /* SceneDelegate.swift in Sources */,
+				533D9D5B2E54702700E401B3 /* StrategyBase.swift in Sources */,
 				5351BAF02E448E54007C9F97 /* ABTestDebugConfigPage.swift in Sources */,
 				53A28A782E4F09E700439EA2 /* iCloudUseViewController.swift in Sources */,
 			);
