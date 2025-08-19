@@ -80,6 +80,14 @@ class CoreDataViewController: SuperViewController {
         tableView.reloadData()
     }
     
+    private lazy var button7 = UILabel().text("按条件查询Person").hnFont(size: 14.h, weight: .bold).backgroundColor(.systemCyan).color(.red).centerAligned().onTap {
+        [weak self] in
+        guard let self = self else {return}
+
+        dataList = manager.fetchPersons(contains: "8")
+        tableView.reloadData()
+    }
+    
     // MARK: - =====================life cycle=======================
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -96,7 +104,7 @@ class CoreDataViewController: SuperViewController {
     
     // MARK: - ===================Intial Methods=======================
     override func setUpUI() {
-        view.addChildView([selectPhoto,saveToSandbox,saveToiCloud,iCloudData,deleteFromiCloud,updateiCloudData,tableView])
+        view.addChildView([selectPhoto,saveToSandbox,saveToiCloud,iCloudData,deleteFromiCloud,updateiCloudData,button7,tableView])
         selectPhoto.snp.makeConstraints { make in
             make.width.equalTo(150.w)
             make.height.equalTo(50.h)
@@ -138,9 +146,16 @@ class CoreDataViewController: SuperViewController {
             make.top.equalTo(saveToiCloud.snp.bottom).offset(10.h)
         }
         
+        button7.snp.makeConstraints { make in
+            make.width.equalTo(150.w)
+            make.height.equalTo(50.h)
+            make.right.equalToSuperview().offset(-10.w)
+            make.top.equalTo(deleteFromiCloud.snp.bottom).offset(10.h)
+        }
+        
         tableView.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
-            make.top.equalTo(updateiCloudData.snp.bottom)
+            make.top.equalTo(button7.snp.bottom)
             make.bottom.equalToSuperview()
         }
     }

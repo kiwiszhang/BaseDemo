@@ -62,6 +62,12 @@ class CoreDataManager {
         return (try? context.fetch(request)) ?? []
     }
     
+    func fetchPersons(contains:String) -> [Person] {
+        let request: NSFetchRequest<Person> = Person.fetchRequest()
+        request.predicate = NSPredicate(format: "name CONTAINS[cd] %@", contains)
+        return (try? context.fetch(request)) ?? []
+    }
+    
     func fetchPets(for person: Person) -> [Pet] {
         return person.pets?.allObjects as? [Pet] ?? []
     }
