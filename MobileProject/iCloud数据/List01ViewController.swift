@@ -38,7 +38,7 @@ class List01ViewController: SuperViewController {
     }
     
     override func getData() {
-        dataList = ["CoreData+CloudKit数据同步","CoreData+CKAsset数据同步","iCloud Document数据同步","四种内购处理"]
+        dataList = ["CoreData+CloudKit数据同步","CoreData+CKAsset数据同步","iCloud Document数据同步","四种内购处理","CoreData简单使用"]
     }
     // MARK: - =====================actions==========================
 
@@ -70,6 +70,8 @@ extension List01ViewController: UITableViewDelegate, UITableViewDataSource {
             vc = iCloudDocumentViewController()
         }else if indexPath.row == 3 {
             vc = PurchaseViewController()
+        }else if indexPath.row == 4 {
+            vc = CoreDataViewController()
         }
         self.navigationController?.pushViewController(vc, animated: true)
     }
