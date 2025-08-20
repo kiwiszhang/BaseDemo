@@ -66,13 +66,14 @@ class StrategyViewController: SuperViewController {
             collectionView.registerSupplementaryViews(viewType, kind: viewType.kind)
         }
         
-        let cellAList = ["AAA","BBB","CCC","DDD","EEE","FFF","AAA","BBB","CCC","DDD","EEE","FFF","AAA","BBB","CCC","DDD","EEE","FFF"]
+        let cellAList = ["AAA","BBB","CCC","DDD","EEE","FFF","AAA","BBB","CCC","DDD","EEE","FFF","AAA","BBB","DDD","EEE","FFF"]
         let cellBList = ["222","333","444","555","222","333","444","555","222","333","444","555"]
         
         // 模拟数据
         sectionArr = [
             MeHomeSectionModel(type: "cellA",headerType: "headerB",footerType: "footerA",headerData: "AAAA",footerData: "AAA",data: SectionDetailModel(dataList: cellAList)),
             MeHomeSectionModel(type: "cellB",headerType: "headerA",footerType: "footerB",headerData: "BBBB",footerData: "BBB",data: SectionDetailModel(dataList: cellBList)),
+            MeHomeSectionModel(type: "cellA",headerType: "headerB",footerType: "footerA",headerData: "AAAA",footerData: "AAA",data: SectionDetailModel(dataList: cellAList)),
         ]
     }
     // MARK: - =====================actions==========================
@@ -113,7 +114,8 @@ extension StrategyViewController: UICollectionViewDelegateFlowLayout, UICollecti
         }
         
         if let cell = collectionView.cellForItem(at: indexPath) as? (SuperCollectionViewCell & MeHomeCellProtocol) {
-            cell.didSelectItem()
+            let model = sectionArr[indexPath.section]
+            cell.didSelectItem(with: model, indexPath: indexPath, controller: self)
         }
     }
     

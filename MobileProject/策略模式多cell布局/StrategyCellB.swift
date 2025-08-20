@@ -37,8 +37,6 @@ class StrategyCellB: SuperCollectionViewCell,MeHomeCellProtocol {
     static func sizeForItem(for section: MeHomeSectionModel) -> CGSize {
         return CGSize(width: (UIScreen.main.bounds.width - 30.h) / 2, height: 100)
     }
-    /// 返回当前这组的组头大小
-    static func headerSize(for section: MeHomeSectionModel) -> CGSize { return .zero }
     /// 设置内边距
     static func edgeInsets(for section: MeHomeSectionModel) -> UIEdgeInsets {
         return .zero

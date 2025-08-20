@@ -38,7 +38,7 @@ class List01ViewController: SuperViewController {
     }
     
     override func getData() {
-        dataList = ["CoreData+CloudKit数据同步","CoreData+CKAsset数据同步","iCloud Document数据同步","四种内购处理","CoreData简单使用","策略模式多cell布局"]
+        dataList = ["CoreData+CloudKit数据同步","icloud+Asset数据同步","iCloud Document数据同步","四种内购处理","CoreData简单使用","策略模式多cell布局"]
     }
     // MARK: - =====================actions==========================
 

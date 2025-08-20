@@ -38,8 +38,6 @@ class StrategyCellA: SuperCollectionViewCell,MeHomeCellProtocol {
         /// 比如排n个就是( n - 1) * interitemSpacing 如果设置了edgeInsets这个值也需要减去相应的
         return CGSize(width: (UIScreen.main.bounds.width - 20.h) / 3, height: 80)
     }
-    /// 返回当前这组的组头大小
-    static func headerSize(for section: MeHomeSectionModel) -> CGSize { return .zero }
     /// 设置内边距
     static func edgeInsets(for section: MeHomeSectionModel) -> UIEdgeInsets {
 //        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
@@ -52,6 +50,10 @@ class StrategyCellA: SuperCollectionViewCell,MeHomeCellProtocol {
     /// 同一行（或同一列）内，相邻单元格之间的最小间距
     static func lineSpacing(for section: MeHomeSectionModel) -> CGFloat {
         return 30.h
+    }
+    /// 点击cell
+    func didSelectItem(with model: MeHomeSectionModel, indexPath: IndexPath, controller: UIViewController) {
+        print("\(model.cellData?.dataList[indexPath.row] ?? "\(indexPath.row)")")
     }
 
 }
