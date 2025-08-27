@@ -342,6 +342,7 @@ class cloudCollecionViewCell: SuperCollectionViewCell {
         imgView.image(UIImage(data: (item.imageData)!))
         print(item.title! as String)
         titleLab.text(item.title)
+        
     }
     
     func configureAsset(with record: CKRecord) {
