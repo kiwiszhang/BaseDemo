@@ -115,57 +115,30 @@ public final class EditImageViewController: UIViewController {
 
     // MARK: - Actions
     /// This function allow user can crop image follow quad. the image will send back by delegate function
-    /// 裁剪图片，保证选中区域和最终图片完全一致
     public func cropImage() {
-        guard let quad = quadView.quad else { return }
-        
-        // 修正原图方向
-        let fixedImage = image.fixOrientation()
-        guard let ciImage = CIImage(image: fixedImage) else { return }
-        
-        // 获取原图尺寸
-        let imageSize = fixedImage.size
-        
-        // 计算 UIImageView 中图片实际显示的区域（考虑 scaleAspectFit）
-        let displayFrame = AVMakeRect(aspectRatio: imageSize, insideRect: imageView.bounds)
-        
-        // 缩放比例
-        let scaleX = imageSize.width / displayFrame.width
-        let scaleY = imageSize.height / displayFrame.height
-        
-        // 偏移量（imageView 左上角到图片实际显示区域左上角的距离）
-        let offsetX = displayFrame.origin.x
-        let offsetY = displayFrame.origin.y
-        
-        // 将 quadView 上的选区坐标映射到原图
-        let mappedQuad = Quadrilateral(
-            topLeft: CGPoint(x: (quad.topLeft.x - offsetX) * scaleX,
-                             y: (quad.topLeft.y - offsetY) * scaleY),
-            topRight: CGPoint(x: (quad.topRight.x - offsetX) * scaleX,
-                              y: (quad.topRight.y - offsetY) * scaleY),
-            bottomRight: CGPoint(x: (quad.bottomRight.x - offsetX) * scaleX,
-                                 y: (quad.bottomRight.y - offsetY) * scaleY),
-            bottomLeft: CGPoint(x: (quad.bottomLeft.x - offsetX) * scaleX,
-                                y: (quad.bottomLeft.y - offsetY) * scaleY)
-        )
-        
-        // 转换为笛卡尔坐标（CoreImage 以左下角为原点）
-        var cartesianQuad = mappedQuad.toCartesian(withHeight: imageSize.height)
-        cartesianQuad.reorganize()
-        
-        // 应用透视裁剪
-        let filteredImage = ciImage.applyingFilter("CIPerspectiveCorrection", parameters: [
-            "inputTopLeft": CIVector(cgPoint: cartesianQuad.bottomLeft),
-            "inputTopRight": CIVector(cgPoint: cartesianQuad.bottomRight),
-            "inputBottomLeft": CIVector(cgPoint: cartesianQuad.topLeft),
-            "inputBottomRight": CIVector(cgPoint: cartesianQuad.topRight)
+        guard let quad = quadView.quad, let ciImage = CIImage(image: image) else {
+            return
+        }
+
+        let cgOrientation = CGImagePropertyOrientation(image.imageOrientation)
+        let orientedImage = ciImage.oriented(forExifOrientation: Int32(cgOrientation.rawValue))
+        let scaledQuad = quad.scale(quadView.bounds.size, image.size)
+        self.quad = scaledQuad
+
+        // Cropped Image
+        var cartesianScaledQuad = scaledQuad.toCartesian(withHeight: image.size.height)
+        cartesianScaledQuad.reorganize()
+
+        let filteredImage = orientedImage.applyingFilter("CIPerspectiveCorrection", parameters: [
+            "inputTopLeft": CIVector(cgPoint: cartesianScaledQuad.bottomLeft),
+            "inputTopRight": CIVector(cgPoint: cartesianScaledQuad.bottomRight),
+            "inputBottomLeft": CIVector(cgPoint: cartesianScaledQuad.topLeft),
+            "inputBottomRight": CIVector(cgPoint: cartesianScaledQuad.topRight)
         ])
-        
-        // 输出 UIImage
+
         let croppedImage = UIImage.from(ciImage: filteredImage)
         delegate?.cropped(image: croppedImage)
     }
-
 
     /// This function allow user to rotate image by 90 degree each and will reload image on image view.
     public func rotateImage() {
@@ -221,7 +194,7 @@ public final class EditImageViewController: UIViewController {
     }
 
     /// Generates a `Quadrilateral` object that's cover all of image.
-    static func defaultQuad(allOfImage image: UIImage, withOffset offset: CGFloat = 75) -> Quadrilateral {
+    private static func defaultQuad(allOfImage image: UIImage, withOffset offset: CGFloat = 75) -> Quadrilateral {
         let topLeft = CGPoint(x: offset, y: offset)
         let topRight = CGPoint(x: image.size.width - offset, y: offset)
         let bottomRight = CGPoint(x: image.size.width - offset, y: image.size.height - offset)

@@ -9,14 +9,10 @@
 
 import AVFoundation
 import UIKit
-import PhotosUI
 
 /// The `ScannerViewController` offers an interface to give feedback to the user regarding quadrilaterals that are detected. It also gives the user the opportunity to capture an image with a detected rectangle.
 public final class ScannerViewController: UIViewController {
 
-    var selectedImages: [UIImage] = []
-
-    
     private var captureSessionManager: CaptureSessionManager?
     private let videoPreviewLayer = AVCaptureVideoPreviewLayer()
 
@@ -46,25 +42,6 @@ public final class ScannerViewController: UIViewController {
         button.addTarget(self, action: #selector(cancelImageScannerController), for: .touchUpInside)
         return button
     }()
-    
-    private lazy var thumbImageView: UIImageView = {
-        let button = UIImageView(image: Asset.appIconLogo.image).enable(true)
-        return button
-    }().onTap { [self] in
-        if thumbImageView.subviews.count > 0 {
-            let img:UIImage = selectedImages.first!
-            let editVC = EditScanViewController(images: selectedImages, quad: EditImageViewController.defaultQuad(allOfImage: img),rotateImage: true)
-            navigationController?.pushViewController(editVC, animated: false)
-        }else{
-            var config = PHPickerConfiguration()
-            config.selectionLimit = 5 // 最多选 5 张
-            config.filter = .images
-            let picker = PHPickerViewController(configuration: config)
-            picker.delegate = self
-            self.present(picker, animated: true)
-        }
-        
-    }
 
     private lazy var autoScanButton: UIBarButtonItem = {
         let title = NSLocalizedString("wescan.scanning.auto", tableName: nil, bundle: Bundle(for: ScannerViewController.self), value: "Auto", comment: "The auto button state")
@@ -149,7 +126,6 @@ public final class ScannerViewController: UIViewController {
         view.addSubview(quadView)
         view.addSubview(cancelButton)
         view.addSubview(shutterButton)
-        view.addSubview(thumbImageView)
         view.addSubview(activityIndicator)
     }
 
@@ -205,13 +181,6 @@ public final class ScannerViewController: UIViewController {
             let shutterButtonBottomConstraint = view.bottomAnchor.constraint(equalTo: shutterButton.bottomAnchor, constant: 8.0)
             shutterButtonConstraints.append(shutterButtonBottomConstraint)
         }
-        
-        thumbImageView.snp.makeConstraints { make in
-            make.width.height.equalTo(80.w)
-            make.right.equalToSuperview().offset(-15.w)
-            make.bottom.equalToSuperview().offset(-50.h)
-        }
-        
 
         NSLayoutConstraint.activate(quadViewConstraints + cancelButtonConstraints + shutterButtonConstraints + activityIndicatorConstraints)
     }
@@ -321,7 +290,8 @@ extension ScannerViewController: RectangleDetectionDelegateProtocol {
 
     func captureSessionManager(_ captureSessionManager: CaptureSessionManager, didCapturePicture picture: UIImage, withQuad quad: Quadrilateral?) {
         activityIndicator.stopAnimating()
-        let editVC = EditScanViewController(images: [picture], quad: quad)
+
+        let editVC = EditScanViewController(image: picture, quad: quad)
         navigationController?.pushViewController(editVC, animated: false)
 
         shutterButton.isUserInteractionEnabled = true
@@ -353,54 +323,3 @@ extension ScannerViewController: RectangleDetectionDelegateProtocol {
     }
 
 }
-
-extension ScannerViewController: PHPickerViewControllerDelegate {
-    public func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-        picker.dismiss(animated: true)
-        
-        selectedImages.removeAll()
-        let group = DispatchGroup()
-        
-        for result in results {
-            group.enter()
-            result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] reading, error in
-                defer { group.leave() }
-                if let image = reading as? UIImage {
-                    self?.selectedImages.append(image)
-                }
-            }
-        }
-        
-        group.notify(queue: .main) { [weak self] in
-            self?.updateButtonImages()
-        }
-    }
-}
-
-extension ScannerViewController {
-    private func updateButtonImages() {
-        // 清空原来的子视图
-        thumbImageView.subviews.forEach { $0.removeFromSuperview() }
-        
-        let displayImages = Array(selectedImages.prefix(3))
-        let imageSize: CGFloat = 40
-        let angle: CGFloat = 10 // 每张旋转角度
-        
-        for (index, image) in displayImages.enumerated() {
-            let imageView = UIImageView(image: image)
-            imageView.frame = CGRect(x: 0, y: 0, width: imageSize, height: imageSize)
-            imageView.center = CGPoint(x: thumbImageView.bounds.midX, y: thumbImageView.bounds.midY)
-            imageView.contentMode = .scaleAspectFill
-            imageView.clipsToBounds = true
-            imageView.layer.cornerRadius = 5
-            
-            // 堆叠和旋转
-            let rotation = CGFloat(index - 1) * angle * (.pi / 180)
-            imageView.transform = CGAffineTransform(rotationAngle: rotation).translatedBy(x: CGFloat(index - 1) * 10, y: 0)
-            
-            // 显示顺序
-            thumbImageView.addSubview(imageView)
-        }
-    }
-}
-
